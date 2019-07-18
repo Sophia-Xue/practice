@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BCPR280 Assignment 2</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<!-- <script src="controller-vue.js"></script>
+	<script src="model.js"></script> -->
+</head>
+<body>
+	<div id = "container-fluid">
+		<div class="form-row text-center" >
+			<div class="col-sm bg-info">
+				<div class="align-middle">
+					<h3>Assignment 2 Vue Interface</h3>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<!-- <div class="d-flex justify-content-around">  -->
+				<div class="col-sm-4">
+					<div id="calculate-Numbers">
+						<br />
+						<div class = "container">
+							<h4>Select a text file</h4>	
+							<br /><br />
+							<input type="file" @change="onFileChange">
+							<br />
+							<br />
+							TextData: {{content}}
+							<br><br>
+							<button type="button" v-on:click="getNumbers" class="btn btn-primary">getData</button>
+							<!---<button v-on:click="getNumbers"> getData </button>---->
+								<ul>
+									<li v-for="number in allReadNumbers">
+										{{ number }}
+									</li>
+								</ul>
+							<!-- <button v-on:click="calcAverage"> Display </button> -->
+							<!-- <br><br> -->
+							<button type="button" v-on:click="getCalculator" class="btn btn-success"> get result </button>
+							<br><br>
+							Mean: {{calc.mean}}
+							<br><br>
+							StandardDeviation: {{calc.standardDeviation}}
+							
+						</div>
+					</div>
+				</div>
+				<br><br>
+				
+				<div class="col-sm-6">
+					<div id="calculate-Numbers2">
+						<br>
+						<h4>Calculate correlation and regression</h4>
+						<br>
+						<div class="container">
+							<table class="table table-hover">
+								<tbody>
+									<tr>
+										<td>Please input all the numbers separated by ",".</td>
+										<td>
+											<input id="enterChar" v-model ="inputX"></input>
+										</td>	
+										<td>
+											<input id="enterChar" v-model ="inputY"></input>							
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<button type="button" v-on:click="getNumbers" class="btn btn-primary">getData</button>
+										</td>
+										<td>
+											xArray:{{this.allInputNumbersX}}	
+										</td>
+										<td>
+											yArray:{{this.allInputNumbersY}}	
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<button type="button" v-on:click="getCalculator" class="btn btn-primary">getResult</button>
+										</td>
+										<td>
+											xAverage: {{calc.xAverage}}	
+										</td>
+										<td>
+											yAverage: {{calc.yAverage}}	
+										</td>
+									</tr>
+									<tr>
+										<td>
+											
+										</td>
+										<td>
+											beta1: {{calc.beta1}}	
+										</td>
+										<td>
+											beta0: {{calc.beta0}}	
+										</td>
+									</tr>
+								</table>
+						<!-- <div id="input">
+							<h5>Please input all the numbers separated by ",". </h5>
+							<input id="enterChar" v-model ="inputX"></input>
+							<br>
+							<input id="enterChar" v-model ="inputY"></input>
+							
+						</div>
+
+						<div id="output">
+							{{inputX}}
+							<br><br>
+							{{inputY}}
+							<br><br>
+							<button type="button" v-on:click="getNumbers" class="btn btn-primary">getData</button> 
+							{{this.allInputNumbersX}}
+							<br><br>
+							{{this.allInputNumbersY}}
+							<button type="button" v-on:click="getCalculator" class="btn btn-success"> get result </button>
+							<br><br>
+							xAverage: {{calc.xAverage}}
+							<br><br>
+							yAverage: {{calc.yAverage}}
+							<br><br>
+							Beta1: {{calc.beta1}}
+							Beta0: {{calc.beta0}}
+						</div> -->
+					</div>
+				</div>	
+			<!-- </div> 	 -->
+		</div>
+	</div>	
+
+	<script src="model.js"></script>
+	<script src="controller-vue.js"></script> 
+	
+</body>
+</html>
